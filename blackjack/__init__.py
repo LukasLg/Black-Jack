@@ -5,7 +5,6 @@ class Card:
 
         self.suit = suit
 
-
 class Deck:
     pass
 
