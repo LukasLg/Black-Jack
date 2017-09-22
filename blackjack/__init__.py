@@ -1,3 +1,5 @@
+import random
+
 class Card:
     def __init__(self, suit, value):
         if suit not in ('spade', 'diamond', 'heart', 'clubs'):
@@ -26,6 +28,20 @@ class Card:
     def __gt__(self, other):
         return self.num_value > other.num_value
 
+    def __repr__(self):
+        return "<{} of {}s>".format(self.value,self.suit)
+
 class Deck:
-    pass
+    """"Standard 52 cards deck, 4 x 13"""
+
+    def __init__(self):
+
+        self.cards = list()
+
+        for suit in ['spade', 'diamond', 'heart', 'clubs']:
+            for value in list(range(2,11)) + ['A','K', 'Q','J']:
+                self.cards.append(Card(suit, value))
+
+    def shuffle(self):
+        random.shuffle(self.cards)
 
